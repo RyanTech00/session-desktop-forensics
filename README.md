@@ -7,18 +7,18 @@
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey.svg)]()
 [![OpenTimestamps](https://img.shields.io/badge/Timestamp-Bitcoin%20Blockchain-orange.svg)](https://opentimestamps.org/)
 
-## 📋 Overview
+## Overview
 
 This repository documents a **forensic behavioral analysis** of [Session Desktop](https://getsession.org/), a privacy-focused messaging application that claims to offer end-to-end encryption and metadata protection.
 
 The research was conducted as part of a **Digital Forensics** course at a Cybersecurity program (CTeSP) and reveals several **privacy vulnerabilities** that may be of interest to:
 
-- 🔍 Digital forensics investigators
-- 🔐 Security researchers
-- 👤 Privacy-conscious users
-- 🎓 Academic community
+- Digital forensics investigators
+- Security researchers
+- Privacy-conscious users
+- Academic community
 
-## ⚠️ Key Findings
+## Key Findings
 
 ### 1. Encryption Key Stored in Plain Text
 The SQLCipher database encryption key is stored **in plain text** in the `config.json` file, allowing anyone with file system access to decrypt the entire database.
@@ -47,7 +47,7 @@ When a sender uses "Clear for everyone", the message on the recipient's device i
 ### 5. Attachments Persist After Message Deletion
 Files in the `attachments.noindex` folder are **not removed** when associated messages are deleted, remaining recoverable with the encryption key stored in the `items` table.
 
-## 📊 Vulnerability Summary
+## Vulnerability Summary
 
 | Vulnerability | Impact | Forensic Value |
 |--------------|--------|----------------|
@@ -57,7 +57,7 @@ Files in the `attachments.noindex` folder are **not removed** when associated me
 | Remote deletion failure | High | Content recovery on recipient device |
 | Attachment persistence | Medium | Media file recovery |
 
-## 🔬 Methodology
+## Methodology
 
 The analysis followed a systematic approach with **9 test scenarios**:
 
@@ -73,7 +73,7 @@ The analysis followed a systematic approach with **9 test scenarios**:
 | C6a | Audio Reception | Voice message handling |
 | C6b | Remote Deletion | Sender deletes "for everyone" |
 
-## 🗂️ Database Structure
+## Database Structure
 
 Session Desktop uses a **SQLCipher-encrypted SQLite** database with:
 
@@ -99,7 +99,7 @@ Session Desktop uses a **SQLCipher-encrypted SQLite** database with:
 | Document | 1 | 1 | 0 |
 | Audio | 1 | 0 | 0 |
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 session-desktop-forensics/
@@ -107,7 +107,8 @@ session-desktop-forensics/
 ├── README.pt.md              # Portuguese version
 ├── LICENSE                   # MIT License
 ├── docs/
-│   └── report.pdf            # Full academic report
+│   └── Relatorio_AFD.pdf            # Full academic report
+│   └── Relatorio_AFD.pdf.ots        # Full academic report Opentimestamp
 ├── queries/
 │   ├── 01-count.sql          # Record counting
 │   ├── 02-messages.sql       # Message analysis
@@ -123,7 +124,7 @@ session-desktop-forensics/
     └── (evidence screenshots)
 ```
 
-## 🛠️ How to Reproduce
+## How to Reproduce
 
 ### Requirements
 
@@ -154,7 +155,7 @@ session-desktop-forensics/
 
 6. **Run the queries** from the `/queries` folder
 
-## ⏱️ Blockchain Timestamp
+## Blockchain Timestamp
 
 This research report has been timestamped using **OpenTimestamps**, anchoring its existence to the Bitcoin blockchain. This provides:
 
@@ -176,14 +177,14 @@ SHA256: 6215ecf860a946ed4f9774d3d77f263be17fc368857a2e0e4ece217effb4bc43
 
 The `.ots` file contains the cryptographic proof linking the document's hash to a Bitcoin transaction.
 
-## 📚 References
+## References
 
 - Session Official Documentation: https://getsession.org/
 - Session Technical Whitepaper: https://arxiv.org/abs/2002.04609
 - SQLCipher: https://www.zetetic.net/sqlcipher/
 - DB Browser for SQLite: https://sqlitebrowser.org/
 
-## ⚖️ Legal Disclaimer
+## Legal Disclaimer
 
 This research was conducted for **educational purposes** as part of an academic program. The findings are intended to:
 
@@ -193,21 +194,21 @@ This research was conducted for **educational purposes** as part of an academic 
 
 **Do not use this information for unauthorized access to others' data.**
 
-## 👥 Authors
+## Authors
 
 | Author | GitHub |
 |--------|--------|
-| **Ryan S.** | [@RyanTech00](https://github.com/RyanTech00) |
-| **FK** | [@FK3570](https://github.com/FK3570) |
+| **Ryan Barbosa** | [@RyanTech00](https://github.com/RyanTech00) |
+| **Igor Araújo** | [@FK3570](https://github.com/FK3570) |
 | **Hugo Correia** | [@hugocorreia2004](https://github.com/hugocorreia2004) |
 
 Cybersecurity Students | Digital Forensics Researchers
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Academic supervisors at CTeSP Cybersecurity program
 - Open source forensics community
