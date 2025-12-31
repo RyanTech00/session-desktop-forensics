@@ -179,7 +179,7 @@ This research report has been timestamped using **OpenTimestamps**, anchoring it
 ### Document Hash
 
 ```
-SHA256: 6215ecf860a946ed4f9774d3d77f263be17fc368857a2e0e4ece217effb4bc43
+SHA256: 53b785ee2e1b9cfcfff17dee2feb4dad828665abb2fc8144dd6d72f1c52f1983
 ```
 
 ### Verification
